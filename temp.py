@@ -12,20 +12,10 @@ def load_model():
 data = load_model()
 
 xgboost = data["model"]
-columns = ['Current_Loan_Amount', 'Annual_Income', 'Monthly_Debt',
-       'Current_Credit_Balance', 'Maximum_Open_Credit', 'Tax_Liens',
-       'Home_Ownership_Home_Mortgage', 'Home_Ownership_Own_Home',
-       'Home_Ownership_Rent', 'Purpose_Buy_House', 'Purpose_Buy_a_Car',
-       'Purpose_Debt_Consolidation', 'Purpose_Educational_Expenses',
-       'Purpose_Home_Improvements', 'Purpose_Medical_Bills', 'Purpose_Other',
-       'Purpose_Take_a_Trip', 'Purpose_major_purchase', 'Purpose_moving',
-       'Purpose_renewable_energy', 'Purpose_small_business',
-       'Purpose_vacation', 'Purpose_wedding', 'Loan_Status_Fully_Paid',
-       'Years_in_current_job_10+_years', 'Years_in_current_job_2_years',
-       'Years_in_current_job_3_years', 'Years_in_current_job_4_years',
-       'Years_in_current_job_5_years', 'Years_in_current_job_6_years',
-       'Years_in_current_job_7_years', 'Years_in_current_job_8_years',
-       'Years_in_current_job_9_years', 'Years_in_current_job_less_1_year']
+columns = ['Current_Loan_Amount','Annual_Income','Monthly_Debt',
+                          'Current_Credit_Balance', 'Tax_Liens', 
+                          'Home_Ownership_Home Mortgage', 'Loan_Status_Fully Paid',
+                          'Purpose_Buy House', 'Years_in_current_job_10+ years']
 
 
 
@@ -46,12 +36,6 @@ def show_predict_page():
     
     number4 = st.number_input('Insert Your Current Credit Balance')
     Current_Credit_Balance = st.write('Your Current Credit Balance is ', number4)
-    
-    number5 = st.number_input('Insert Your Maximum Open Credit')
-    Maximum_Open_Credit = st.write('Your Maximum Open Credit is ', number5)
-  
-    
-  
     
   
     option1 = st.slider('Your Tax Liens:', 0, 15, 1)
@@ -210,7 +194,7 @@ def show_predict_page():
 
     if ok:
         X = np.array([[ Current_Loan_Amount, Annual_Income, Monthly_Debt, 
-                       Current_Credit_Balance, Maximum_Open_Credit, 
+                       Current_Credit_Balance, 
                        Tax_Liens, Home_Ownership, Purpose,
                        Loan_Status, Years_in_current_job]])
         
